@@ -30,7 +30,7 @@ React will be running on http://localhost:3000/
 1. Open a terminal window
 2. `conda activate venv`
 3. `cd BizShield/react-flask-app/backend`
-4. `flask run`
+4. `python app.py`
 5. Open another terminal window
 6. `cd BizShield/react-flask-app`
 7. `yarn start`

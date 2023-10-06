@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 
-@app.route('/api/login/investor', methods=['POST'])
+@app.route('/api/login/investor', methods=['POST'], strict_slashes=False)
 def investor_login():
     # Hardcoded credentials
     username = "investor123"
@@ -18,7 +18,7 @@ def investor_login():
     else:
         return jsonify(status="error", message="Invalid credentials!")
 
-@app.route('/api/login/company', methods=['POST'])
+@app.route('/api/login/company', methods=['POST'], strict_slashes=False)
 def company_login():
     # Hardcoded credentials
     username = "company123"
@@ -30,7 +30,7 @@ def company_login():
         return jsonify(status="error", message="Invalid credentials!")
 
 
-@app.route('/api/getCompanyListings', methods=['POST'])
+@app.route('/api/getCompanyListings', methods=['POST'], strict_slashes=False)
 def get_company_listings():
     if not request.json:
         return jsonify({"error": "JSON data expected"}), 400
@@ -67,7 +67,7 @@ def get_company_listings():
     return jsonify(data)
 
 
-@app.route("/api/getCompanyData", methods=["GET"])
+@app.route("/api/getCompanyData", methods=["GET"], strict_slashes=False)
 def get_company_data():
     data = {
         'riskData': {
