@@ -1,22 +1,22 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    // Fetch the greeting message from Flask backend
+    fetch('/greeting')
+      .then(response => response.json())
+      .then(data => setMessage(data.message));
+  }, []); // The empty array means this useEffect will run once when the component is mounted
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {message}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
