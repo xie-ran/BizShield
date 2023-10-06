@@ -91,14 +91,7 @@ def get_company_data():
             'labels': ['Environmental', 'Social', 'Governance'],
             'datasets': [{
                 'data': [40, 30, 30],
-                'backgroundColor': ['#33A02C', '#1F78B4', '#E31A1C']
-            }]
-        },
-        'analystRatingsData': {
-            'labels': ['Buy', 'Hold', 'Sell'],
-            'datasets': [{
-                'data': [10, 5, 2],
-                'backgroundColor': ['#5DADE2', '#F4D03F', '#E74C3C']
+                'backgroundColor': ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
             }]
         },
         'newsItems': ["News Item 1", "News Item 2", "..."],
