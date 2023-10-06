@@ -5,6 +5,8 @@ import LoginPage from './Components/LoginPage/LoginPage';
 import CompanyListings from './Components/CompanyListings/CompanyListings';
 import CompanyProfile from './Components/CompanyProfile/CompanyProfile';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {

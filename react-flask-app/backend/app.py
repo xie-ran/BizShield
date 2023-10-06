@@ -11,7 +11,7 @@ CORS(app)  # Enable CORS for all routes
 def investor_login():
     # Hardcoded credentials
     username = "investor123"
-    password = "password"
+    password = "ilovechengdu"
     
     if request.json["username"] == username and request.json["password"] == password:
         return jsonify(status="success", message="Logged in as Investor!")
@@ -22,7 +22,7 @@ def investor_login():
 def company_login():
     # Hardcoded credentials
     username = "company123"
-    password = "password"
+    password = "ilovechengdu"
     
     if request.json["username"] == username and request.json["password"] == password:
         return jsonify(status="success", message="Logged in as Company!")

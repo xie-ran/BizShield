@@ -18,8 +18,15 @@ function LoginPage() {
             },
             body: JSON.stringify({ username, password })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            console.log(response);
+            return response.json();
+        })
         .then(data => {
+            console.log(data);
             if(data.status === "success") {
                 alert(data.message);
                 if(type === "investor") {
@@ -28,7 +35,11 @@ function LoginPage() {
             } else {
                 alert(data.message);
             }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error.message);
         });
+
     };
 
     const title = type.charAt(0).toUpperCase() + type.slice(1) + " Login";
