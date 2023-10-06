@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function LoginPage() {
@@ -7,6 +8,7 @@ function LoginPage() {
     const [password, setPassword] = useState("");
 
     const { type } = useParams(); // <-- This is how you get the route params
+    const navigate = useNavigate();
 
     const handleLogin = () => {
         fetch(`http://localhost:5000/login/${type}`, {
@@ -20,6 +22,9 @@ function LoginPage() {
         .then(data => {
             if(data.status === "success") {
                 alert(data.message);
+                if(type === "investor") {
+                    navigate('/company-listings'); // Redirect to company listings page
+                }
             } else {
                 alert(data.message);
             }
