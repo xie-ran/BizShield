@@ -35,7 +35,7 @@ function CompanyProfile() {
         labels: ['Environmental', 'Social', 'Governance'],
         datasets: [{
             data: [40, 30, 30],
-            backgroundColor: ['#33A02C', '#1F78B4', '#E31A1C']
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
         }]
     };
 
@@ -52,7 +52,7 @@ function CompanyProfile() {
     const analystComments = ["Analyst Comment 1", "Analyst Comment 2", "..."];
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-2">
             <div className="headerContainer">
                 <h2>Profile of Apple Inc.</h2>
                 <Link to="/">
@@ -61,7 +61,7 @@ function CompanyProfile() {
             </div>
 
             <div className="gridContainer">
-            <Card className="mb-4 riskCard">
+            <Card className="mb-2 riskCard">
                     <Card.Body className='cardBody'>
                         <Card.Title>Risk Assessment</Card.Title>
                         <div className="chartContainer">
@@ -70,7 +70,7 @@ function CompanyProfile() {
                     </Card.Body>
                 </Card>
 
-                <Card className="mb-4 stockCard">
+                <Card className="mb-2 stockCard">
                     <Card.Body className='cardBody'>
                         <Card.Title>Stock Price Trend</Card.Title>
                         <div className="chartContainer">
@@ -79,7 +79,7 @@ function CompanyProfile() {
                     </Card.Body>
                 </Card>
 
-                <Card className="mb-4 esgCard">
+                <Card className="mb-2 esgCard">
                     <Card.Body className='cardBody'>
                         <Card.Title>ESG Metrics</Card.Title>
                         <div className="chartContainer">
@@ -89,7 +89,7 @@ function CompanyProfile() {
                 </Card>
 
     
-                <Card className="mb-4 newsCard">
+                <Card className="mb-2 newsCard">
                     <Card.Body>
                         <Card.Title>Company News</Card.Title>
                         <ul>{newsItems.map((news, index) => <li key={index}>{news}</li>)}</ul>
