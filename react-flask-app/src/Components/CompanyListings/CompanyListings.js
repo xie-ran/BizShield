@@ -6,7 +6,7 @@ function CompanyListings() {
     const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/getCompanyListings', {
+        fetch(`/api/getCompanyListings`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

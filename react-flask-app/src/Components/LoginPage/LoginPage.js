@@ -11,7 +11,7 @@ function LoginPage() {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        fetch(`http://localhost:5000/api/login/${type}`, {
+        fetch(`/api/login/${type}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
