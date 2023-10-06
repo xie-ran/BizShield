@@ -28,7 +28,7 @@ function LoginPage() {
         .then(data => {
             console.log(data);
             if(data.status === "success") {
-                alert(data.message);
+                //alert(data.message);
                 if(type === "investor") {
                     navigate('/company-listings'); // Redirect to company listings page
                 }

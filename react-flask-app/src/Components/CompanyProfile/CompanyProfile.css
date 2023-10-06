@@ -11,9 +11,7 @@
     height: 200px; /* Define a fixed height for the chart container */
     width: 100%;
   }
-  
-  /* ... rest of your CSS code ... */
-  
+
   
   .riskCard {
     grid-row: 1 / span 1; /* spans one row */
@@ -21,7 +19,6 @@
   }
 
   .riskCard .chartContainer {
-    transform: scale(0.4);
     transform-origin: center top;
 }
 
@@ -37,12 +34,20 @@
   }
 
   .esgCard .chartContainer {
-    transform: scale(0.4);
     transform-origin: center top;
 }
   
   .newsCard {
     grid-row: 2 / span 1; /* spans one row */
     grid-column: 2 / span 1; /* starts from the second column and spans one column */
-  }
+}
   
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardbody .chartContainer {
+  transform: translateY(30%);
+}
