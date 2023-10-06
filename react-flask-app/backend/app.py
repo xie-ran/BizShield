@@ -67,8 +67,8 @@ def get_company_listings():
     return jsonify(data)
 
 
-@app.route("/api/getCompanyData", methods=["GET"], strict_slashes=False)
-def get_company_data():
+@app.route("/api/getProfileData", methods=["GET"], strict_slashes=False)
+def get_profile_data():
     data = {
         'riskData': {
             'labels': ['Operational', 'Legal', 'Loan', 'Others'],
@@ -99,6 +99,53 @@ def get_company_data():
     }
     return jsonify(data)
 
+
+
+@app.route("/api/getDashboardData", methods=["GET"], strict_slashes=False)
+def get_dashboard_data():
+    data = {
+        'riskData': {
+            'labels': ['Operational', 'Legal', 'Loan', 'Others'],
+            'datasets': [{
+                'data': [35, 20, 25, 20],
+                'backgroundColor': ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        },
+        'financialOverview': {
+            'labels': ['Revenue', 'Expenses', 'Profit'],
+            'datasets': [{
+                'data': [100000, 50000, 50000],
+                'backgroundColor': ['#FF6384', '#36A2EB', '#FFCE56'], 
+            }],
+            'annotations': [
+                'Operational risk affected revenue in Q1',
+                'Legal settlements increased expenses in Q2',
+                'Profit margins improved after mitigating loan risks in Q3'
+            ]
+        },
+        'marketAnalysis': {
+            'labels': ['Market Share', 'Competitive Position', 'Market Shifts'],
+            'datasets': [{
+                'label': 'Market Data', 
+                'data': [25, 2, -5],  
+                'backgroundColor': 'rgba(75,192,192,0.2)', 
+                'borderColor': 'rgba(75,192,192,1)', 
+                'pointBackgroundColor': 'rgba(75,192,192,1)', 
+                'pointBorderColor': '#fff',
+                'pointHoverBackgroundColor': '#fff',
+                'pointHoverBorderColor': 'rgba(75,192,192,1)'
+            }],
+            'risks': ['Loss of market share due to operational risks', 'Position threatened by legal issues', 'Market shifts due to external economic factors']
+        },
+
+
+        'goalsAndTargets': {
+            'goals': ['Increase Market Share', 'Launch New Product'],
+            'mitigationStrategies': ['Address operational risks to improve production', 'Secure loans for R&D to facilitate new product launch']
+        }
+    }
+
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run(debug=True)

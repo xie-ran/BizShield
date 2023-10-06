@@ -24,9 +24,9 @@ function CompanyProfile() {
 
         
     useEffect(() => {
-        async function fetchCompanyData() {
+        async function fetchProfileData() {
             try {
-                const response = await fetch("/api/getCompanyData");
+                const response = await fetch("/api/getProfileData");
                 const data = await response.json();
                 setCompanyData(data);
                 setIsLoading(false);  // Set loading to false once data has been fetched
@@ -36,7 +36,7 @@ function CompanyProfile() {
             }
         }
         
-        fetchCompanyData();
+        fetchProfileData();
     }, []);  // The empty dependency array ensures this useEffect runs once when component mounts
     
 
