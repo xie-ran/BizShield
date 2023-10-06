@@ -12,7 +12,7 @@ Requirement: Please have Python3 installed.
 4. `cd BizShield/react-flask-app/backend`
 5. `pip install -r requirements.txt` 
 6. `flask run`
-The flask back end will be running on http://localhost:5000/
+The Flask back end will be running on http://localhost:5000/
 
 ### 2. Install React Front End
 Requirement: Please have npm and yarn installed.
@@ -23,10 +23,10 @@ Requirement: Please have npm and yarn installed.
 4. `npm install react-scripts` 
 5. `npm install`
 6. `npm run start`
-The front end will be running on http://localhost:3000/
+React will be running on http://localhost:3000/
 
 
-### 3. Run the app
+### 3. Run the app locally
 1. Open a terminal window
 2. `conda activate venv`
 3. `cd BizShield/react-flask-app/backend`
