@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CompanyListings() {
     const [companies, setCompanies] = useState([]);
 
     useEffect(() => {
-        // Fetch company listings from Flask backend using POST
         fetch('http://localhost:5000/getCompanyListings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: "Requesting data" }) // You can send any required data within this object
+            body: JSON.stringify({ message: "Requesting data" })
         })
         .then(response => response.json())
         .then(data => setCompanies(data))
@@ -19,10 +19,10 @@ function CompanyListings() {
     }, []);
 
     return (
-        <div>
-            <h2>Company Listings</h2>
-            <table>
-                <thead>
+        <div className="container mt-5">
+            <h2 className="text-center mb-4">Company Listings</h2>
+            <table className="table table-hover">
+                <thead className="thead-dark">
                     <tr>
                         <th>Index</th>
                         <th>Name</th>
