@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function CompanyListings() {
     const [companies, setCompanies] = useState([]);
@@ -36,7 +37,11 @@ function CompanyListings() {
                     {companies.map((company, index) => (
                         <tr key={index}>
                             <td>{index + 1}</td>
-                            <td>{company.name}</td>
+                            <td>
+                                <Link to={`/company/${company.name}`}>
+                                    {company.name}
+                                </Link>
+                            </td>
                             <td>{company.operation_risk}</td>
                             <td>{company.legal_risk}</td>
                             <td>{company.loan_risk}</td>

@@ -67,6 +67,40 @@ def get_company_listings():
     return jsonify(data)
 
 
-if __name__ == '__main__':
+@app.route('/getCompanyMetrics', methods=['POST'])
+def get_company_metrics():
+    # For this example, we'll just send dummy data. Typically, you'd query a database.
+    
+    data = {
+        'peRatio': "25.4",
+        'dividendYield': "1.5%",
+        'eps': "$3.20",
+        'revenueTrend': "$5.6B (3% YoY increase)",
+        'competitorRisk': "Lower",
+        'sustainabilityInitiatives': "Company has reduced carbon emissions by 15% this year.",
+        'recentNews': "Apple has recently faced operational challenges due to supply chain disruptions.",
+        
+        'riskChartData': {
+            'labels': ['Operational', 'Legal', 'Loan', 'Others'],
+            'datasets': [{
+                'data': [35, 20, 25, 20],
+                'backgroundColor': ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+            }]
+        },
+
+        'stockChartData': {
+            'labels': ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+            'datasets': [{
+                'label': 'Stock Price',
+                'data': [100, 105, 104, 110, 115],
+                'backgroundColor': 'rgba(75,192,192,0.4)',
+                'borderColor': 'rgba(75,192,192,1)',
+                'borderWidth': 1
+            }]
+        }
+    }
+
+    return jsonify(data)
+
+if __name__ == "__main__":
     app.run(debug=True)
- 
