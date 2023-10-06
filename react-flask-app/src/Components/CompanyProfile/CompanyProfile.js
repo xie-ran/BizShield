@@ -51,7 +51,7 @@ function CompanyProfile() {
 
     return (
         <Container className="mt-5">
-            <h2>Investor's View - Company Dashboard</h2>
+            <h2>Profile of Apple Inc.</h2>
             <div className="gridContainer">
             <Card className="mb-4 riskCard">
                     <Card.Body>
