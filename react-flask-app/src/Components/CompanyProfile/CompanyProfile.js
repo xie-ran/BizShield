@@ -49,7 +49,7 @@ function CompanyProfile() {
 
         <Container className="mt-2">
             <div className="headerContainer">
-                <h2>Profile of Apple Inc.</h2>
+                <h2>Company Profile</h2>
                 <Link to="/">
                     <button className="btn btn-primary">Sign Off</button>
                 </Link>

@@ -19,7 +19,12 @@ function CompanyListings() {
     }, []);
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-3">
+            <div className="col-12 text-center mb-5">
+                <h1>BizShield</h1>
+            </div>
+
+
             <h2 className="text-center mb-4">Company Listings</h2>
             <table className="table table-hover">
                 <thead className="thead-dark">
@@ -30,7 +35,7 @@ function CompanyListings() {
                         <th>Legal Risk (%)</th>
                         <th>Loan Risk (%)</th>
                         <th>Others (%)</th>
-                        <th>Type</th>
+                        <th>Risk Type</th>
                     </tr>
                 </thead>
                 <tbody>

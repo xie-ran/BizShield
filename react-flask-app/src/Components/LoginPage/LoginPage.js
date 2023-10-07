@@ -48,8 +48,13 @@ function LoginPage() {
     const title = type.charAt(0).toUpperCase() + type.slice(1) + " Login";
 
     return (
-        <div className="container mt-5">
+        <div className="container mt-3">
             <div className="row justify-content-center">
+            <div className="col-12 text-center mb-5">
+                <h1>BizShield</h1>
+            </div>
+
+
                 <div className="col-md-6">
                     <h2 className="text-center mb-4">{title}</h2>
                     <div className="mb-3">

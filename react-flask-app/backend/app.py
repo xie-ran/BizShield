@@ -37,7 +37,8 @@ def get_company_listings():
 
     # Your data processing logic can use the incoming JSON if required
 
-    companies = ['Apple', 'Microsoft', 'Google', 'Facebook', 'Amazon']
+    companies = ['Apple', 'Microsoft', 'Google', 'Facebook', 'Amazon', 'Tesla', 'Netflix', 'Samsung', 'IBM', 'Oracle'];
+
     data = []
 
     for company in companies:
@@ -140,8 +141,8 @@ def get_dashboard_data():
 
 
         'goalsAndTargets': {
-            'goals': ['Increase Market Share', 'Launch New Product'],
-            'mitigationStrategies': ['Address operational risks to improve production', 'Secure loans for R&D to facilitate new product launch']
+            'goals': ['Increase Market Share', 'Launch New Product', '...'],
+            'mitigationStrategies': ['Address operational risks to improve production', 'Secure loans for R&D to facilitate new product launch','...']
         }
     }
 
