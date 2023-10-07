@@ -31,7 +31,7 @@ function CompanyListings() {
                     <tr>
                         <th>Index</th>
                         <th>Name</th>
-                        <th>Operation Risk (%)</th>
+                        <th>Operational Risk (%)</th>
                         <th>Legal Risk (%)</th>
                         <th>Loan Risk (%)</th>
                         <th>Other Risks (%)</th>
