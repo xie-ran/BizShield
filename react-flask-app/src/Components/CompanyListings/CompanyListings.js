@@ -34,8 +34,8 @@ function CompanyListings() {
                         <th>Operation Risk (%)</th>
                         <th>Legal Risk (%)</th>
                         <th>Loan Risk (%)</th>
-                        <th>Others (%)</th>
-                        <th>Risk Type</th>
+                        <th>Other Risks (%)</th>
+                        <th>Risk Identified</th>
                     </tr>
                 </thead>
                 <tbody>

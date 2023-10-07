@@ -1,17 +1,23 @@
 ## BizShield
 
-This is a demo for BizShield.
+Welcome to the BizShield demo. 
 
-Before you start, create a conda environment using the following command:
+To get started, let's set up the necessary environment and tools:
+
+---
+
+**Initial Setup:**
+
+Ensure you have a conda environment. Create one using:
 ```bash
 conda create --name venv python=3.9.6
 ```
 
 ---
 
-### 1. Install Flask Back End
+### 1. Setting up the Flask Backend
 
-**Requirement:** Ensure Python3 is installed.
+**Requirement:** Python3.
 
 ```bash
 # Install npm
@@ -20,75 +26,75 @@ install npm
 # Activate the conda environment
 conda activate venv
 
-# Clone the repository
+# Clone the BizShield repository
 git clone https://github.com/xie-ran/BizShield.git
 
-# Change to the backend directory
+# Navigate to the backend directory
 cd BizShield/react-flask-app/backend
 
-# Install required packages
+# Install the required packages
 pip install -r requirements.txt
 
-# Start Flask
+# Launch the Flask server
 flask run
 ```
-
-The Flask back end will be accessible at: [http://localhost:5000/](http://localhost:5000/)
+Access the Flask backend at [http://localhost:5000/](http://localhost:5000/).
 
 ---
 
-### 2. Install React Front End
+### 2. Setting up the React Frontend
 
-**Requirement:** Ensure npm and yarn are installed.
+**Requirement:** npm and yarn.
 
 ```bash
-# Open a separate terminal window and activate the conda environment
+# In a separate terminal, activate the conda environment
 conda activate venv
 
-# Change to the main app directory
+# Navigate to the app directory
 cd BizShield/react-flask-app
 
-# Remove the package-lock.json file
+# (Optional) Remove the package-lock.json file
 rm -rf package-lock.json
 
-# Install react-scripts
+# Install react-scripts and other dependencies
 npm install react-scripts
-
-# Install other required packages
 npm install
 
-# Start the React app
+# Launch the React app
 npm run start
 ```
-
-React will be accessible at: [http://localhost:3000/](http://localhost:3000/)
+Access the React frontend at [http://localhost:3000/](http://localhost:3000/).
 
 ---
 
-### 3. Run the app locally
+### 3. Running the App Locally
 
 ```bash
-# Open a terminal window and activate the conda environment
+# In a terminal, activate the conda environment and run the backend
 conda activate venv
-
-# Change to the backend directory
 cd BizShield/react-flask-app/backend
-
-# Run the backend app
 python app.py
 
-# Open another terminal window
+# In another terminal, launch the front-end app
 cd BizShield/react-flask-app
-
-# Start the front-end app
 yarn start
 ```
+Keep both terminals running. Access the full app at [http://localhost:3000/](http://localhost:3000/).
 
-The app will be accessible at: [http://localhost:3000/](http://localhost:3000/)
+---
 
-Please ensure both terminal windows remain open at all times.
+**Sample Logins:**
+
+For Individual Users:
+- **Username:** individual123
+- **Password:** ilovechengdu
+
+For Corporates:
+- **Username:** corporate123
+- **Password:** ilovechengdu
 
 ---
 
 **Acknowledgment:** 
-I sincerely thank my teammates, Yitong and Xintong, for their unwavering support during the development of this app.
+My heartfelt thanks to my teammates, Yitong and Xintong, for their consistent support throughout the app's development.
+```

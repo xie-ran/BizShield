@@ -9,20 +9,20 @@ function WelcomePage() {
         <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6 text-center">
-                    <h2>Welcome to BizSheild</h2>
+                    <h2>Welcome to BizShield</h2>
                     <p>Select your role to proceed:</p>
                     <div className="d-grid gap-2">
                         <button 
                             className="btn btn-primary mb-2"
-                            onClick={() => navigate('/login/investor')}
+                            onClick={() => navigate('/login/individual')}
                         >
-                            Investor
+                            Individual
                         </button>
                         <button 
                             className="btn btn-secondary"
-                            onClick={() => navigate('/login/company')}
+                            onClick={() => navigate('/login/corporate')}
                         >
-                            Company
+                            Corporate
                         </button>
                     </div>
                 </div>

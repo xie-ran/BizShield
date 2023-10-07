@@ -28,11 +28,9 @@ function LoginPage() {
         .then(data => {
             console.log(data);
             if(data.status === "success") {
-                if(type === "investor") {
-                    console.log('investor')
+                if(type === "individual") {
                     navigate('/company-listings'); // Redirect to company listings page
-                } else if(type === "company") {
-                    console.log('company')
+                } else if(type === "corporate") {
                     navigate('/company-dashboard'); // Redirect to company dashboard page
                 }
             } else {

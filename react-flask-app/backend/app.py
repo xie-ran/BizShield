@@ -7,25 +7,25 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 
-@app.route('/api/login/investor', methods=['POST'], strict_slashes=False)
+@app.route('/api/login/individual', methods=['POST'], strict_slashes=False)
 def investor_login():
     # Hardcoded credentials
-    username = "investor123"
+    username = "individual123"
     password = "ilovechengdu"
     
     if request.json["username"] == username and request.json["password"] == password:
-        return jsonify(status="success", message="Logged in as Investor!")
+        return jsonify(status="success", message="Logged in as Individual!")
     else:
         return jsonify(status="error", message="Invalid credentials!")
 
-@app.route('/api/login/company', methods=['POST'], strict_slashes=False)
+@app.route('/api/login/corporate', methods=['POST'], strict_slashes=False)
 def company_login():
     # Hardcoded credentials
-    username = "company123"
+    username = "corporate123"
     password = "ilovechengdu"
     
     if request.json["username"] == username and request.json["password"] == password:
-        return jsonify(status="success", message="Logged in as Company!")
+        return jsonify(status="success", message="Logged in as Corporate!")
     else:
         return jsonify(status="error", message="Invalid credentials!")
 

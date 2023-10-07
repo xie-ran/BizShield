@@ -58,7 +58,7 @@ function CompanyProfile() {
             <div className="gridContainer">
             <Card className="mb-2 riskCard">
                     <Card.Body className='cardBody'>
-                        <Card.Title>Risk Assessment</Card.Title>
+                        <Card.Title>Risk Distribution</Card.Title>
                         <div className="chartContainer">
                             {companyData.riskData && companyData.riskData.labels && <Pie data={companyData.riskData} options={{responsive: true, aspectRatio: 2, plugins: {legend: {position: 'right'}}}}/>}
                         </div>
