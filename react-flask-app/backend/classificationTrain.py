@@ -1,67 +1,68 @@
-# Import necessary libraries
+# import necessary libraries
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import accuracy_score, classification_report
 from imblearn.over_sampling import SMOTE
 from statsmodels.tsa.arima_model import ARIMA
-import lime
-import lime.lime_tabular
-import tensorflow as tf
-from tensorflow import keras
-from sklearn.preprocessing import OneHotEncoder
+from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier
+from sklearn.metrics import classification_report
+from lime.lime_tabular import LimeTabularExplainer
+
 
 # assume data is in data.csv
 data = pd.read_csv('data.csv')
 
-X = data.drop('risk_type', axis=1)
+# split data 
+X = data.drop(columns=['risk_type']) 
 y = data['risk_type']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+labeled_mask = y.notnull()
+X_labeled = X[labeled_mask]
+y_labeled = y[labeled_mask]
+X_unlabeled = X[~labeled_mask]
+y_unlabeled = y[~labeled_mask]
 
-# balance the data
-smote = SMOTE(random_state=42)
-X_train_resampled, y_train_resampled = smote.fit_resample(X_train, y_train)
 
-# ARIMA (depends on the real situation)
-# arima_model = ARIMA(X_train['time_series_column'], order=(5,1,0))
-# arima_model_fit = arima_model.fit(disp=0)
+# feature engineering 
+scaler = StandardScaler()
+X_labeled = scaler.fit_transform(X_labeled)
+X_unlabeled = scaler.transform(X_unlabeled)
 
-# nn
-# for demo purpose only
-# real nn will vary a lot
-model = keras.Sequential([
-    keras.layers.Input(shape=(X_train.shape[1],)),  
-    keras.layers.Dense(64, activation='relu'), 
-    keras.layers.Dense(32, activation='relu'), 
-    keras.layers.Dense(16, activation='relu'), 
-    keras.layers.Dense(4, activation='softmax') 
-])
+# SMOTE for handling class imbalance
+smote = SMOTE()
+X_resampled, y_resampled = smote.fit_resample(X_labeled, y_labeled)
 
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+# time series component
+# arima_model = ARIMA(y_labeled, order=(p, d, q))  
+# arima_fit = arima_model.fit()
 
-# go train it
-model.fit(X_train_resampled, y_train_resampled, epochs=10, batch_size=64)
+# XGBoost Classifier
+xgb_model = XGBClassifier()
+xgb_model.fit(X_resampled, y_resampled)
 
-# GBT
-gbt_model = GradientBoostingClassifier(n_estimators=100, random_state=42)
-gbt_model.fit(X_train, y_train)
+# LightGBM Classifier
+lgbm_model = LGBMClassifier()
+lgbm_model.fit(X_resampled, y_resampled)
 
-# evaluation
-nn_predictions = model.predict(X_test)
-gbt_predictions = gbt_model.predict(X_test)
-nn_accuracy = accuracy_score(y_test, nn_predictions)
-gbt_accuracy = accuracy_score(y_test, gbt_predictions)
-print("Neural Network Accuracy: ", nn_accuracy)
-print("Gradient Boosted Trees Accuracy: ", gbt_accuracy)
+# evaluate the models
+y_pred_xgb = xgb_model.predict(X_unlabeled)
+y_pred_lgbm = lgbm_model.predict(X_unlabeled)
 
-# interpretation
-explainer = lime.lime_tabular.LimeTabularExplainer(X_train_resampled, mode="classification")
-explanation = explainer.explain_instance(X_test.iloc[0], model.predict_proba)
+# generate classification reports 
+report_xgb = classification_report(y_unlabeled, y_pred_xgb)
+report_lgbm = classification_report(y_unlabeled, y_pred_lgbm)
 
-print("LIME Explanation:", explanation.as_list())
+print("XGBoost Classification Report:")
+print(report_xgb)
 
-# hyperparameter tuning (depend on the real data)
+print("LightGBM Classification Report:")
+print(report_lgbm)
 
+# LIME explainer
+explainer = LimeTabularExplainer(X_resampled, mode="classification")
+
+instance_to_explain = X_unlabeled[0]
+explanation = explainer.explain_instance(instance_to_explain, xgb_model.predict_proba)
+explanation.show_in_notebook()
