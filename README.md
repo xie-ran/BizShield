@@ -1,4 +1,3 @@
-```markdown
 ## BizShield
 
 This is a demo for BizShield.
@@ -93,4 +92,3 @@ Please ensure both terminal windows remain open at all times.
 
 **Acknowledgment:** 
 I sincerely thank my teammates, Yitong and Xintong, for their unwavering support during the development of this app.
-```
