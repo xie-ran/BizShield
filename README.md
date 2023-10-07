@@ -97,4 +97,3 @@ For Corporates:
 
 **Acknowledgment:** 
 My heartfelt thanks to my teammates, Yitong and Xintong, for their consistent support throughout the app's development.
-```
